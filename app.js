@@ -147,6 +147,14 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Error interno del servidor' });
 });
 
+app.get('/version', (req, res) => {
+  res.json({
+    aplicacion: 'parcial2-inventario-api',
+    version: '1.0.1',
+    despliegue: 'prueba-git-push'
+  });
+});
+
 start().catch(err => {
   console.error('No se pudo iniciar la aplicación:', err.message);
   process.exit(1);
