@@ -11,21 +11,7 @@ const pool = new Pool({
     : false
 });
 
-app.get('/', (req, res) => {
-  res.json({
-    aplicacion: 'Sistema de Inventario API',
-    tecnologia: 'Node.js + Express',
-    baseDatos: 'PostgreSQL',
-    endpoints: [
-      'GET /api/productos',
-      'GET /api/productos/:id',
-      'POST /api/productos',
-      'PUT /api/productos/:id',
-      'DELETE /api/productos/:id',
-      'GET /health'
-    ]
-  });
-});
+app.use(express.static('public'));
 
 app.get('/health', async (req, res) => {
   try {
